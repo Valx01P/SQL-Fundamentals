@@ -1,0 +1,49 @@
+EXTRA NOTES ON SQL
+
+REFERENCE TABLE EXAMPLE;
+
+CREATE TABLE products (
+	id INT NOT NULL,
+	name STRING,
+	price MONEY,
+	PRIMARY KEY (id)
+)
+
+EX. ADDING RECORD//
+INSERT INTO products
+VALUES (2, "Pencil, 0.80, 12)
+
+-----------------------------------------------
+
+EX. CREATING TABLE WITH FOREIGN KEYS//
+
+
+CREATE TABLE orders (
+id INT NOT NULL,
+order_number INT,
+customer_id INT,
+PRIMARY KEY (id)
+FOREIGN KEY (customer_id) REFERENCES customers(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
+)
+
+
+EX. ADDING A RECORD TO YOUR TABLE//
+INSERT INTO orders
+VALUES (1, 4362, 2, 1)
+
+EX. VIEWING YOUR TABLE
+SELECT * FROM 'orders';
+
+
+
+EX. JOINING PARTS OF A TABLE WHERE FOREIGN KEYS MATCH
+SELECT orders.order_number, customers.first_name, cumtomers.last_name, customers.address
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.id
+
+
+EX.2 JOINING TABLES USING INNER JOIN (again) ^^^vvv
+SELECT orders.order_number, products.name, products.price, products.stock
+FROM orders
+INNER JOIN products ON orders.product_id = products.id

@@ -1,0 +1,52 @@
+Structured Query Language//
+How to use SQL// Notes
+Practice on sqliteonline.com
+
+In databases you do 4 things//
+Create	C
+Read		R
+Update	U
+Destroy	D
+
+SQL CREATE TABLE Statement//
+
+CREATE TABLE table_name (
+	column1 datatype,
+	column2 datatype,
+	column3 datatype,
+	....
+);
+
+EX.
+
+CREATE TABLE products (
+	id INT NOT NULL,
+	name STRING,
+	price MONEY,
+	PRIMARY KEY (id)
+)
+
+ADD DATA// The SQL INSERT INTO Statement
+
+INSERT INTO table_name (column1, column2, column3,..)
+VALUES (value1, value2, value3,..);
+
+or
+
+INSERT INTO table_name
+VALUES (value1, value2, value3,..);
+
+EX.
+
+INSERT INTO products
+VALUES (1, "Pen", 1.20)
+	^^^		vvv
+Expressed a single line statement in SQL//
+INSERT INTO products VALUES (1, "Pen", 1.20)
+
+
+!! Insert item into table with limited data//
+EX. w/ no price//
+
+INSERT INTO products (id, name)
+VALUES (2, "Pencil")
